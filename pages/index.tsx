@@ -14,7 +14,7 @@ import { GithubUserType } from "../types";
 
 export default function Home({ githubProfileData }: { githubProfileData: any }) {
   return (
-    <div>
+    <div className="page-wave-bg">
       <SEO />
       <Navigation />
       <Greetings />

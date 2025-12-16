@@ -12,7 +12,7 @@ const Feedbacks = () => {
 
   return (
     <Fade bottom duration={2000}>
-      <section className="section section-lg" style={{ background: '#0d1117' }}>
+      <section className="section section-lg">
         <Container>
           <div className="d-flex p-4">
             <div>

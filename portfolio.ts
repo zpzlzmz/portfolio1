@@ -83,6 +83,17 @@ export const SkillBars: SkillBarsType[] = [
 
 export const educationInfo: EducationType[] = [
   {
+    schoolName: "광주 인공지능사관학교",
+    subHeader: "6기 AI 개발자 과정",
+    duration: "2025.06 - 2025.12",
+    desc: "AI 개발자 양성과정 6기 교육 수료, 컴퓨터 비전 및 생성형 AI 프로젝트 수행",
+    grade: "수료",
+    descBullets: [
+      "YOLO, GPT-4o Vision, LangChain 등을 활용한 실전 프로젝트 수행",
+      "팀 프로젝트 리더 경험 및 MLOps/백엔드 연동 경험",
+    ],
+  },
+  {
     schoolName: "네이버 클라우드 캠프",
     subHeader: "웹 풀스택 개발자 과정 17기",
     duration: "2024.12 - 2025.06",
@@ -118,7 +129,7 @@ export const experience: ExperienceType[] = [
   {
     role: "Tech Support Intern",
     company: "KW International Inc.",
-    companyLogo: "/img/icons/common/kw-international.png",
+    companyLogo: "/img/icons/common/kw-international.svg",
     date: "2022.03 - 2023.03 (미국, CA)",
     desc: "Windows AD 환경에서 사내 IT 지원, 계정 관리, 네트워크 이슈 대응. 영어/한국어 이중 언어로 다국적 직원들과 협업하며 문제 정의-해결-문서화 사이클 체득.",
   },

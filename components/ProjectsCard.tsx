@@ -54,26 +54,6 @@ const ProjectsCard = ({ name, desc, github, link, image }: ProjectType) => {
                       </span>
                     </Button>
                   ) : null}
-                  {link ? (
-                    <Button
-                      className="btn-icon"
-                      color="success"
-                      href={link}
-                      target="_blank"
-                      rel="noopener"
-                      aria-label="Demo"
-                      style={{
-                        background: 'linear-gradient(135deg, #00d9ff 0%, #7c3aed 100%)',
-                        border: 'none',
-                        borderRadius: '8px'
-                      }}
-                    >
-                      <span className="btn-inner--icon">
-                        <i className="fa fa-external-link mr-2" />
-                      </span>
-                      <span className="nav-link-inner--text ml-1">Demo</span>
-                    </Button>
-                  ) : null}
                 </div>
               </div>
             </div>

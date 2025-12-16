@@ -16,7 +16,7 @@ body > div:first-child {
   overflow-x: hidden;
 }
 
-/* 전체 배경 다크모드 */
+/* 전체 배경 다크모드 (기본) */
 body {
   background-color: var(--dark-bg) !important;
   color: var(--dark-text) !important;
@@ -105,7 +105,7 @@ p, span, div {
   border: 1px solid var(--dark-border) !important;
   border-radius: 16px !important;
   box-shadow: none !important;
-  transition: none !ont;
+  transition: none !important;
 }
 
 .card:hover {
@@ -158,13 +158,15 @@ p, span, div {
   border-radius: 10px !important;
 }
 
-/* 섹션 배경 */
+/* 섹션 배경
+   - 기본은 투명으로 두고, 각 섹션에서 개별적으로 배경을 지정
+   - 이렇게 해야 상단 Hero 그라디언트가 아래 섹션과 자연스럽게 이어짐 */
 section {
-  background-color: var(--dark-bg) !important;
+  background-color: transparent;
 }
 
 .section-shaped {
-  background-color: var(--dark-bg-secondary) !important;
+  background-color: transparent;
 }
 
 /* 교육/경험 카드 */
@@ -281,4 +283,84 @@ footer {
   .card {
     margin-bottom: 20px;
   }
+}
+
+/* 홈 전체에 적용되는 파도치는 그라디언트 배경
+   - 본체는 단색에 가깝게 두고
+   - ::before 오버레이에서 색과 밝기만 아주 부드럽게 변화 */
+.page-wave-bg {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #020617 0%, #020617 100%);
+  overflow-x: hidden;
+  z-index: 0; /* ::before 오버레이가 내용 뒤, 배경 위에 보이도록 스택 컨텍스트 생성 */
+}
+
+.page-wave-bg::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.45), transparent 62%),
+    radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.36), transparent 62%);
+  pointer-events: none;
+  z-index: -1;
+  animation: pageWave 14s ease-in-out infinite;
+}
+
+@keyframes pageWave {
+  0% {
+    opacity: 0.5;
+    filter: hue-rotate(-40deg);
+  }
+  50% {
+    opacity: 0.95;
+    filter: hue-rotate(140deg);
+  }
+  100% {
+    opacity: 0.5;
+    filter: hue-rotate(-40deg);
+  }
+}
+
+/* Hero 영역은 전체 페이지 파도 배경만 공유하고,
+   별도의 추가 그라디언트는 사용하지 않도록 단순 anchor만 둔다. */
+.hero-wave {
+  position: relative;
+}
+
+/* 첫 화면에서만 보이는 스크롤 힌트 */
+.scroll-down-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #8b949e;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0.85;
+  animation: scrollHintFade 1.8s ease-in-out infinite;
+}
+
+.scroll-down-hint .arrow {
+  width: 18px;
+  height: 18px;
+  border-left: 2px solid #58a6ff;
+  border-bottom: 2px solid #58a6ff;
+  transform: rotate(-45deg);
+  animation: scrollArrowBounce 1s ease-in-out infinite;
+}
+
+@keyframes scrollHintFade {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.9; transform: translateX(-50%) translateY(4px); }
+}
+
+@keyframes scrollArrowBounce {
+  0%, 100% { transform: rotate(-45deg) translateY(0); }
+  50% { transform: rotate(-45deg) translateY(4px); }
 }
