@@ -104,13 +104,13 @@ p, span, div {
   background-color: var(--dark-bg-secondary) !important;
   border: 1px solid var(--dark-border) !important;
   border-radius: 16px !important;
-  box-shadow: var(--card-shadow) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  box-shadow: none !important;
+  transition: none !ont;
 }
 
 .card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 12px 40px rgba(0, 217, 255, 0.2) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .card-body {

@@ -16,64 +16,34 @@ const colors = {
 
 const projects = [
   {
-    id: "kcalculator",
-    name: "KCalculator",
-    subtitle: "AI 기반 건강 식단 관리 서비스",
-    period: "2024.10 ~ 2024.12",
-    team: "4인 팀 / 풀스택 개발 & AI 파이프라인",
-    description: "음식 사진 한 장으로 칼로리 분석부터 맞춤 식단 추천까지",
-    tech: ["Next.js 15", "TypeScript", "FastAPI", "YOLO11-large", "GPT-4o Vision", "MySQL", "Redis"],
-    github: "https://github.com/food-calorie-vision",
-    color: "#00d9ff",  // 시안
+    id: "ondam",
+    name: "Ondam",
+    subtitle: "Spring Boot 기반 사내 그룹웨어",
+    period: "2025.03 ~ 2025.04",
+    team: "6인 팀 / 쪽지 시스템 & 공유 자료실 담당",
+    description: "모든 구성원이 함께 소통하고 협업할 수 있는 공간",
+    tech: ["Spring Boot", "Thymeleaf", "JPA", "MySQL", "WebSocket", "SSE", "Jenkins"],
+    github: "https://github.com/bitcamp17-semi/ondam",
+    demo: "http://223.130.151.54/",
+    color: "#f59e0b",  // 주황
     features: [
-      { name: "AI 음식 분석", desc: "YOLO11 탐지 → GPT-4o Vision 4개 후보 → 식약처 DB 매칭" },
-      { name: "맞춤 식단 추천", desc: "Harris-Benedict 공식 기반 TDEE 계산, 3가지 스타일 옵션" },
-      { name: "건강 점수", desc: "NRF9.3 기반 0~100점 영양 균형 수치화" },
-      { name: "레시피 추천", desc: "Roboflow API로 냉장고 재료 인식 → 건강 레시피 제안" },
+      { name: "쪽지 시스템", desc: "SSE 실시간 알림, 중요 메시지 필터링, 검색 기능" },
+      { name: "공유 자료실", desc: "부서별 자료 공유, 4개 이상 파일 zip 일괄 다운로드" },
+      { name: "전자 결재", desc: "템플릿 기반 기안문 작성, 결재라인 순서 지정" },
+      { name: "메신저", desc: "WebSocket 기반 1:1/그룹 채팅, 파일 전송" },
     ],
     highlights: [
       {
-        title: "YOLO + GPT-Vision + DB 3단계 파이프라인",
-        problem: "GPT-Vision만 사용 시 환각 문제, DB만 사용 시 인식 정확도 저하",
-        solution: "YOLO11 탐지 → GPT-4o 추출 → MySQL 매칭 파이프라인 구축",
-        result: "1차 음식명 → 2차 재료명 → 3차 대분류 폴백으로 매칭률 대폭 향상"
+        title: "SSE 기반 실시간 알림 시스템",
+        problem: "쪽지 수신 시 사용자가 새로고침해야 확인 가능",
+        solution: "Server-Sent Events로 결재/쪽지/일정 등록 시 즉시 알림",
+        result: "새로고침 없이 실시간 알림 수신, UX 향상"
       },
       {
-        title: "NRF9.3 건강 점수 시스템",
-        problem: "단순 칼로리 계산만으로는 영양 균형 파악 어려움",
-        solution: "권장 영양소 9개 / 제한 영양소 3개 기준 점수 알고리즘 적용",
-        result: "일일 식단의 영양 균형을 직관적으로 수치화"
-      }
-    ],
-  },
-  {
-    id: "dolpan-eatso",
-    name: "Dolpan-Eatso",
-    subtitle: "AI 기반 스마트 한우 개체 관리 시스템",
-    period: "2025.07 (해커톤)",
-    team: "5인 팀 / 풀스택 & AI 파이프라인",
-    description: "스마트폰 카메라로 소의 BCS 분석 및 맞춤 사료 추천",
-    tech: ["Next.js 14", "FastAPI", "YOLOv8", "ResNet", "LangChain", "GPT-4o-mini"],
-    github: "https://github.com/dolpan-eatso",
-    color: "#a855f7",  // 보라
-    features: [
-      { name: "AI BCS 분석", desc: "YOLOv8 후구 탐지 → ResNet BCS 5~9점 판정" },
-      { name: "맞춤 사료 추천", desc: "BCS 점수 기반 조사료/곡물사료 배합비 자동 계산" },
-      { name: "AI 챗봇", desc: "LangChain + Function Calling으로 자연어 명령 처리" },
-      { name: "대시보드", desc: "Recharts로 BCS 변화 추이, 사료비 분석 시각화" },
-    ],
-    highlights: [
-      {
-        title: "YOLOv8 + ResNet 2단계 AI 파이프라인",
-        problem: "전체 이미지에서 BCS 분석 시 정확도 저하",
-        solution: "YOLOv8로 후구 영역만 탐지 → 크롭 이미지를 ResNet에 입력",
-        result: "AI Hub 사전학습 모델 활용, BCS 5~9점 분류 및 신뢰도 제공"
-      },
-      {
-        title: "LangChain AI Agent 챗봇",
-        problem: "단순 FAQ 매칭으로는 다양한 요청 처리 불가",
-        solution: "Function Calling으로 페이지 이동, 설정 변경 등 프로그램 제어",
-        result: "자연어로 '대시보드로 이동해줘' 등 명령 처리 가능"
+        title: "파일 일괄 다운로드 기능",
+        problem: "여러 파일을 하나씩 다운로드하는 번거로움",
+        solution: "4개 이상 파일 선택 시 서버에서 zip 압축 후 제공",
+        result: "대량 파일 다운로드 시 사용자 편의성 대폭 향상"
       }
     ],
   },
@@ -110,34 +80,64 @@ const projects = [
     ],
   },
   {
-    id: "ondam",
-    name: "Ondam",
-    subtitle: "Spring Boot 기반 사내 그룹웨어",
-    period: "2025.03 ~ 2025.04",
-    team: "6인 팀 / 쪽지 시스템 & 공유 자료실 담당",
-    description: "모든 구성원이 함께 소통하고 협업할 수 있는 공간",
-    tech: ["Spring Boot", "Thymeleaf", "JPA", "MySQL", "WebSocket", "SSE", "Jenkins"],
-    github: "https://github.com/bitcamp17-semi/ondam",
-    demo: "http://223.130.151.54/",
-    color: "#f59e0b",  // 주황
+    id: "dolpan-eatso",
+    name: "Dolpan-Eatso",
+    subtitle: "AI 기반 스마트 한우 개체 관리 시스템",
+    period: "2025.07 (해커톤)",
+    team: "5인 팀 / 풀스택 & AI 파이프라인",
+    description: "스마트폰 카메라로 소의 BCS 분석 및 맞춤 사료 추천",
+    tech: ["Next.js 14", "FastAPI", "YOLOv8", "ResNet", "LangChain", "GPT-4o-mini"],
+    github: "https://github.com/dolpan-eatso",
+    color: "#a855f7",  // 보라
     features: [
-      { name: "쪽지 시스템", desc: "SSE 실시간 알림, 중요 메시지 필터링, 검색 기능" },
-      { name: "공유 자료실", desc: "부서별 자료 공유, 4개 이상 파일 zip 일괄 다운로드" },
-      { name: "전자 결재", desc: "템플릿 기반 기안문 작성, 결재라인 순서 지정" },
-      { name: "메신저", desc: "WebSocket 기반 1:1/그룹 채팅, 파일 전송" },
+      { name: "AI BCS 분석", desc: "YOLOv8 후구 탐지 → ResNet BCS 5~9점 판정" },
+      { name: "맞춤 사료 추천", desc: "BCS 점수 기반 조사료/곡물사료 배합비 자동 계산" },
+      { name: "AI 챗봇", desc: "LangChain + Function Calling으로 자연어 명령 처리" },
+      { name: "대시보드", desc: "Recharts로 BCS 변화 추이, 사료비 분석 시각화" },
     ],
     highlights: [
       {
-        title: "SSE 기반 실시간 알림 시스템",
-        problem: "쪽지 수신 시 사용자가 새로고침해야 확인 가능",
-        solution: "Server-Sent Events로 결재/쪽지/일정 등록 시 즉시 알림",
-        result: "새로고침 없이 실시간 알림 수신, UX 향상"
+        title: "YOLOv8 + ResNet 2단계 AI 파이프라인",
+        problem: "전체 이미지에서 BCS 분석 시 정확도 저하",
+        solution: "YOLOv8로 후구 영역만 탐지 → 크롭 이미지를 ResNet에 입력",
+        result: "AI Hub 사전학습 모델 활용, BCS 5~9점 분류 및 신뢰도 제공"
       },
       {
-        title: "파일 일괄 다운로드 기능",
-        problem: "여러 파일을 하나씩 다운로드하는 번거로움",
-        solution: "4개 이상 파일 선택 시 서버에서 zip 압축 후 제공",
-        result: "대량 파일 다운로드 시 사용자 편의성 대폭 향상"
+        title: "LangChain AI Agent 챗봇",
+        problem: "단순 FAQ 매칭으로는 다양한 요청 처리 불가",
+        solution: "Function Calling으로 페이지 이동, 설정 변경 등 프로그램 제어",
+        result: "자연어로 '대시보드로 이동해줘' 등 명령 처리 가능"
+      }
+    ],
+  },
+  {
+    id: "kcalculator",
+    name: "KCalculator",
+    subtitle: "AI 기반 건강 식단 관리 서비스",
+    period: "2024.10 ~ 2024.12",
+    team: "4인 팀 / 풀스택 개발 & AI 파이프라인",
+    description: "음식 사진 한 장으로 칼로리 분석부터 맞춤 식단 추천까지",
+    tech: ["Next.js 15", "TypeScript", "FastAPI", "YOLO11-large", "GPT-4o Vision", "MySQL", "Redis"],
+    github: "https://github.com/food-calorie-vision",
+    color: "#00d9ff",  // 시안
+    features: [
+      { name: "AI 음식 분석", desc: "YOLO11 탐지 → GPT-4o Vision 4개 후보 → 식약처 DB 매칭" },
+      { name: "맞춤 식단 추천", desc: "Harris-Benedict 공식 기반 TDEE 계산, 3가지 스타일 옵션" },
+      { name: "건강 점수", desc: "NRF9.3 기반 0~100점 영양 균형 수치화" },
+      { name: "레시피 추천", desc: "Roboflow API로 냉장고 재료 인식 → 건강 레시피 제안" },
+    ],
+    highlights: [
+      {
+        title: "YOLO + GPT-Vision + DB 3단계 파이프라인",
+        problem: "GPT-Vision만 사용 시 환각 문제, DB만 사용 시 인식 정확도 저하",
+        solution: "YOLO11 탐지 → GPT-4o 추출 → MySQL 매칭 파이프라인 구축",
+        result: "1차 음식명 → 2차 재료명 → 3차 대분류 폴백으로 매칭률 대폭 향상"
+      },
+      {
+        title: "NRF9.3 건강 점수 시스템",
+        problem: "단순 칼로리 계산만으로는 영양 균형 파악 어려움",
+        solution: "권장 영양소 9개 / 제한 영양소 3개 기준 점수 알고리즘 적용",
+        result: "일일 식단의 영양 균형을 직관적으로 수치화"
       }
     ],
   }
@@ -206,7 +206,7 @@ const Portfolio = () => {
                   margin: '3px 0',
                   borderRadius: '6px',
                   cursor: 'pointer',
-                  background: activeSection === item.id ? 'rgba(88, 166, 255, 0.1)' : 'transparent',
+                  background: activeSection === item.id ? 'rgba(37, 99, 235, 0.08)' : 'transparent',
                   borderLeft: activeSection === item.id ? `2px solid ${colors.primary}` : '2px solid transparent',
                   color: activeSection === item.id ? colors.primary : colors.muted,
                   fontSize: '0.85rem',
@@ -228,7 +228,8 @@ const Portfolio = () => {
               <Card style={{ 
                 background: colors.card, 
                 border: `1px solid ${colors.border}`,
-                borderRadius: '12px'
+                borderRadius: '16px',
+                boxShadow: 'none'
               }}>
                 <CardBody className="p-4 p-md-5">
                   <h2 style={{ color: colors.text, marginBottom: '1.5rem', fontSize: '1.5rem' }}>
@@ -243,9 +244,9 @@ const Portfolio = () => {
                           width: '100%',
                           maxWidth: '180px',
                           aspectRatio: '1',
-                          borderRadius: '12px',
+                          borderRadius: '16px',
                           objectFit: 'cover',
-                          boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)'
+                          boxShadow: '0 14px 30px rgba(15, 23, 42, 0.12)'
                         }}
                       />
                     </Col>
@@ -295,7 +296,8 @@ const Portfolio = () => {
               <Card style={{ 
                 background: colors.card, 
                 border: `1px solid ${colors.border}`,
-                borderRadius: '12px'
+                borderRadius: '16px',
+                boxShadow: 'none'
               }}>
                 <CardBody className="p-4 p-md-5">
                   <h2 style={{ color: colors.text, marginBottom: '1.5rem', fontSize: '1.5rem' }}>
@@ -303,6 +305,7 @@ const Portfolio = () => {
                   </h2>
                   <div>
                     {[
+                      { period: '2025.06 ~ 2025.12', activity: '광주 인공지능사관학교 6기 (AI 개발자 과정)', type: 'education' },
                       { period: '2024.12 ~ 2025.06', activity: '네이버 클라우드 캠프 웹 풀스택 개발자 과정 17기', type: 'education' },
                       { period: '2023.03 ~ 2024.03', activity: 'Columbia West College 영어 과정 수료 (미국)', type: 'education' },
                       { period: '2022.03 ~ 2023.03', activity: 'KW International Inc. Tech Support Intern (미국)', type: 'work' },
@@ -312,7 +315,7 @@ const Portfolio = () => {
                       <div key={idx} style={{ 
                         display: 'flex', 
                         padding: '12px 0',
-                        borderBottom: idx < 4 ? `1px solid ${colors.accent}` : 'none',
+                        borderBottom: idx < 4 ? `1px solid ${colors.border}` : 'none',
                         alignItems: 'flex-start'
                       }}>
                         <div style={{ 
@@ -340,7 +343,8 @@ const Portfolio = () => {
               <Card style={{ 
                 background: colors.card, 
                 border: `1px solid ${colors.border}`,
-                borderRadius: '12px'
+                borderRadius: '16px',
+                boxShadow: 'none'
               }}>
                 <CardBody className="p-4 p-md-5">
                   <h2 style={{ color: colors.text, marginBottom: '1.5rem', fontSize: '1.5rem' }}>
@@ -365,7 +369,7 @@ const Portfolio = () => {
                             <span key={skill} style={{ 
                               background: colors.accent,
                               border: `1px solid ${colors.border}`,
-                              color: colors.text,
+                              color: colors.secondary,
                               padding: '4px 10px',
                               fontSize: '0.75rem',
                               fontWeight: 400,
@@ -392,9 +396,10 @@ const Portfolio = () => {
                 <Card style={{ 
                   background: colors.card, 
                   border: `1px solid ${colors.border}`,
-                  borderRadius: '12px',
+                  borderRadius: '16px',
                   overflow: 'hidden',
-                  borderLeft: `3px solid ${project.color}`
+                  borderLeft: `4px solid ${project.color}`,
+                  boxShadow: 'none'
                 }}>
                   {/* 프로젝트 헤더 */}
                   <div style={{ 
@@ -407,7 +412,7 @@ const Portfolio = () => {
                         <h3 style={{ color: project.color, margin: 0, fontSize: '1.25rem', fontWeight: 600 }}>
                           {project.name}
                         </h3>
-                        <p style={{ color: colors.muted, margin: '4px 0 0', fontSize: '0.9rem' }}>{project.subtitle}</p>
+                    <p style={{ color: colors.muted, margin: '4px 0 0', fontSize: '0.9rem' }}>{project.subtitle}</p>
                       </div>
                       <div style={{ textAlign: 'right' }}>
                         <div style={{ color: colors.muted, fontSize: '0.85rem' }}>{project.period}</div>
@@ -428,7 +433,7 @@ const Portfolio = () => {
                         <span key={t} style={{ 
                           background: colors.accent,
                           border: `1px solid ${colors.border}`,
-                          color: colors.text,
+                          color: colors.secondary,
                           padding: '4px 10px',
                           fontSize: '0.75rem',
                           fontWeight: 400,
@@ -462,7 +467,7 @@ const Portfolio = () => {
                       {project.highlights.map((h, i) => (
                         <div key={i} style={{ 
                           background: colors.accent, 
-                          borderRadius: '8px', 
+                          borderRadius: '10px', 
                           padding: '14px 16px',
                           marginBottom: '10px',
                           borderLeft: `2px solid ${project.color}`
@@ -493,38 +498,18 @@ const Portfolio = () => {
                           display: 'inline-flex',
                           alignItems: 'center',
                           padding: '6px 14px',
-                          background: colors.accent,
-                          border: `1px solid ${colors.border}`,
-                          borderRadius: '6px',
-                          color: colors.text,
+                          background: '#eff6ff',
+                          border: `1px solid #bfdbfe`,
+                          borderRadius: '999px',
+                          color: colors.primary,
                           textDecoration: 'none',
-                          fontSize: '0.85rem'
+                          fontSize: '0.85rem',
+                          fontWeight: 500
                         }}
                       >
                         <i className="fa fa-github" style={{ marginRight: '6px' }} />
                         GitHub
                       </a>
-                      {project.demo && (
-                        <a 
-                          href={project.demo} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            padding: '6px 14px',
-                            background: 'transparent',
-                            border: `1px solid ${colors.border}`,
-                            borderRadius: '6px',
-                            color: colors.muted,
-                            textDecoration: 'none',
-                            fontSize: '0.85rem'
-                          }}
-                        >
-                          <i className="fa fa-external-link" style={{ marginRight: '6px' }} />
-                          Demo
-                        </a>
-                      )}
                     </div>
                   </CardBody>
                 </Card>
