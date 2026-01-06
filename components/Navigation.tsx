@@ -70,42 +70,6 @@ const Navigation = () => {
                 </Row>
               </div>
               <Nav className="align-items-lg-center ml-lg-auto" navbar>
-                <NavItem>
-                  <NavLink
-                    href="/portfolio"
-                    style={{
-                      color: isActive('/portfolio') ? '#00d9ff' : '#e6edf3',
-                      fontWeight: isActive('/portfolio') ? 600 : 400,
-                      padding: '10px 16px',
-                      borderBottom: isActive('/portfolio') ? '2px solid #00d9ff' : 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    <i className="fa fa-briefcase mr-2" />
-                    포트폴리오
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    href="/resume"
-                    style={{
-                      color: isActive('/resume') ? '#00d9ff' : '#e6edf3',
-                      fontWeight: isActive('/resume') ? 600 : 400,
-                      padding: '10px 16px',
-                      borderBottom: isActive('/resume') ? '2px solid #00d9ff' : 'none',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    <i className="fa fa-file-text mr-2" />
-                    이력서
-                  </NavLink>
-                </NavItem>
-                <div style={{ 
-                  width: '1px', 
-                  height: '24px', 
-                  backgroundColor: '#30363d', 
-                  margin: '0 10px'
-                }} className="d-lg-block d-none" />
                 {socialLinks.github && (
                   <NavItem>
                     <NavLink
@@ -114,7 +78,12 @@ const Navigation = () => {
                       className="nav-link-icon"
                       href={socialLinks.github}
                       target="_blank"
-                      style={{ color: '#e6edf3' }}
+                      style={{ 
+                        color: '#e6edf3',
+                        transition: 'color 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#58a6ff'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#e6edf3'}
                     >
                       <i className="fa fa-github" style={{ fontSize: '1.3rem' }} />
                       <span className="nav-link-inner--text d-lg-none ml-2">Github</span>
@@ -128,7 +97,12 @@ const Navigation = () => {
                       aria-label="Email"
                       className="nav-link-icon"
                       href={socialLinks.email}
-                      style={{ color: '#e6edf3' }}
+                      style={{ 
+                        color: '#e6edf3',
+                        transition: 'color 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#58a6ff'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#e6edf3'}
                     >
                       <i className="fa fa-envelope" style={{ fontSize: '1.2rem' }} />
                       <span className="nav-link-inner--text d-lg-none ml-2">Email</span>
